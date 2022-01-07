@@ -1,0 +1,40 @@
+<% include ./header/head %>
+<div class="container my-3">
+  <div class="container">
+    <h5 class="text-primary">Create A Post</h5>
+   </div>
+  <div class="form-floating">
+     <form action="/upload"  method="post" enctype="multipart/form-data">
+        <textarea class="form-control" placeholder="Write post description Hear" id="floatingTextarea2"    style="height: 100px" name="capsion"></textarea>
+          <!-- <label for="floatingTextarea2">Comments</label> -->
+        <div class="mb-3">
+        <label for="formFile" class="form-label">Select The Image</label>
+        <input class="form-control" type="file" id="formFile" name="image">
+    </div>
+    <button type="submit" style="width: 100%;" class="btn btn-primary  btn-block ">Post Now</button>
+     </form>
+  </div>
+</div>
+ <div class="container my-3">
+    <h5 class="text-primary">My Post's</h5>
+   </div>
+     <%user.posts.reverse().forEach(function(userpost){%>
+      <div class="container my-2">
+       <div class="card " style="width: 18rem;">
+        <% if(userpost.image){%>
+          <img class="card-img-top" src="../images/<%=userpost.image%>" alt="Card image cap">
+         <%}%>
+         <div class="card-body">
+           <h6 class="text-primary" class="card-title"><%=user.username%></h6>
+           <p class="card-text"><%=userpost.capsion%></p>
+           <a href="/like/<%=userpost._id%>" class="btn btn-primary"><%= userpost.likes.length %>  Like</a>
+          <a href="/share/<%=userpost._id%>" class="btn btn-primary">Share</a>
+          <a href="/report/<%=userpost._id%>" class="btn btn-primary  position-relative mx-2">Report <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <%= userpost.report.length %></span></a>
+         <a href="/delete/<%=userpost._id%>" style="text-decoration: none; color: crimson;"><i class="ri-delete-bin-5-line"></i></a>
+         </div>
+       </div>
+      </div>
+     <%})%>
+   
+<% include ./header/footer %>

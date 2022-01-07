@@ -1,0 +1,19 @@
+<% include ./header/head %>
+  <div class="container my-3">
+    <h1>Login Now</h1>
+    <form action="/login" method="post">
+      <div class="mb-3 my-3">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user mane" name="username">
+      </div>
+     
+      <div class="mb-3">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="password">
+      </div>
+    <div class="container mb-1">
+      <a href="/register" class="text-primary ">Register Now</a>
+    </div>
+
+      <button type="submit" style="width: 100%;" class="btn btn-primary  btn-block ">Login Now</button>
+    </form>
+  </div>
+<% include ./header/footer %>

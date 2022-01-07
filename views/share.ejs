@@ -1,0 +1,16 @@
+<% include ./header/head %>
+<div class="container my-2">
+    <div class="card " style="width: 18rem;">
+      <% if(posts.image){%>
+       <img class="card-img-top" src="../images/<%=posts.image%>" alt="Card image cap">
+      <%}%>
+      <div class="card-body">
+        <h6 class="text-primary" class="card-title"><%=posts.author%></h6>
+        <p class="card-text"><%=posts.capsion%></p>
+        <a href="/like/<%=posts._id%>" class="btn btn-primary"><%= posts.likes.length %>  Like</a>
+        <a href="/share/<%=posts._id%>" class="btn btn-primary">Share</a>
+        <a href="/report/<%=posts._id%>" class="btn btn-danger">Report</a>
+      </div>
+    </div>
+     </div>
+<% include ./header/footer %>
